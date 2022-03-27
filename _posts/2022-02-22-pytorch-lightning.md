@@ -7,7 +7,7 @@ toc: true
 ---
 ![](/images/pytorch-lightning/header-landscape.png)
 
-[Github Repository](https://github.com/appliedml85/language-modeling)
+[Github Repository](https://github.com/appliedml42/language-modeling)
 
 ## High-Level Code Structure
 TBD

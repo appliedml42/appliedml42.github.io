@@ -1,6 +1,6 @@
 ---
-title: About appliedml85
-subtitle: Resources for applying machine learning to real-world problems.
+title: About appliedml42
+subtitle: Resources for applying machine learning.
 description: A stunning personal blog Jekyll theme with an image-focused design.
 featured_image: /images/about-portrait.jpg
 ---

@@ -1,6 +1,6 @@
 basic_settings:
-  site_title: appliedml85
-  site_tagline: Resources for applying machine learning to real-world problems.
+  site_title: appliedml42
+  site_tagline: Resources for applying machine learning.
   favicon_image: /images/favicon.png
 
 header_settings:
