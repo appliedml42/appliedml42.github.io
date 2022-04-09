@@ -1,54 +1,30 @@
 ---
-layout: default
-title: Past and present projects.
-description: Resources for applying machine learning to real-world problems.
-featured_image: /images/header.jpg
+layout: main
 ---
-<section class="blog single">
+{% for post in paginator.posts %}
+<article class="post">
+    {% if post.img %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append :
+    post.img}})" href="{{post.redirect-url}}"></a>
+    {% else %}
+    {% endif %}
+    <div class="post-content">
+        <span class="post-date">{{post.date | date: '%Y, %b %d'}}</span>
+        <h2 class="post-title"><a href="{{post.redirect-url}}">{{post.title}}</a></h2>
+        <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
+        <div class="page-footer">
+            <div class="page-share">
+                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}"
+                   title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+            </div>
+            <div class="page-tag">
+                {% for tag in post.tags %}
+                <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</article>
+{% endfor %}
 
-	<div class="wrap">
-
-		{% for post in paginator.posts %}
-
-		<article class="blog-post">
-
-			<div class="blog-post__header">
-				<h2 class="blog-post__title"><a href="{{ post.redirect }}">{{ post.title }}</a></h2>
-				<p class="blog-post__subtitle">{{ post.date | date_to_long_string }}</p>
-			</div>
-
-			{% if post.featured_image %}
-			<a href="{{ post.redirect }}" class="blog-post__image" style="background-image: url({{ post.featured_image | relative_url }});"></a>
-			{% endif %}
-
-			<div class="blog-post__content">
-				<p>{{ post.excerpt }}</p>
-				<p><a href="{{ post.redirect }}" class="button">Explore</a>
-			</div>
-
-		</article>
-
-		{% endfor %}
-
-	</div>
-
-</section>
-
-{% if paginator.total_pages > 1 %}
-
-<section class="pagination">
-
-	{% if paginator.previous_page %}
-	<div class="pagination__prev">
-		<a href="{{ paginator.previous_page_path | relative_url }}" class="button button--large"><i class="fa fa-angle-left" aria-hidden="true"></i> <span>Newer Posts</span></a>
-	</div>
-	{% endif %}
-	{% if paginator.next_page %}
-	<div class="pagination__next">
-		<a href="{{ paginator.next_page_path | relative_url }}" class="button button--large"><span>Older Posts</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-	</div>
-	{% endif %}
-
-</section>
-
-{% endif %}
+{% include pagination.html %}
