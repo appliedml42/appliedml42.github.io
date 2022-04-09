@@ -14,7 +14,7 @@ layout: main
         <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
         <div class="page-footer">
             <div class="page-share">
-                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}"
+                <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{post.redirect-url}}"
                    title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
             </div>
             <div class="page-tag">
